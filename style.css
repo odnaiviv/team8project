@@ -1,0 +1,47 @@
+body {
+	background-color: #f0f8ff;
+	font-family: "Verdana", sans-serif;
+}
+fieldset {
+	background-color: #4169e1;
+	color: whitesmoke;
+	border: 2px double #f6eabe;
+	border-radius: 15px;
+}
+legend {
+	background-color: #4169e1;
+	color: #f3e5ab;
+	font-size: 20pt;
+	text-align: center;
+	box-sizing: border-box;
+	box-shadow: 5px #191970;
+	border: 2px double #f6eabe;
+	padding: 0.2em;
+}
+input[type="submit"] {
+	background-color: #f6eabe;
+	font-size: 100%;
+	font-weight: bold;
+	text-align: center;
+}
+form {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 2em;
+}
+a {
+	color: #191970;
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+}
+a:visited {
+	color: #ff6347;
+	font-size: 20pt;
+}
+a:hover {
+	background-color: #fdfd96;
+}
