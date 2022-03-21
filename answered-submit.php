@@ -33,6 +33,7 @@
 			//turns question as answered
 			$_SESSION['questionblock'][$num][7] = 1;
 			$_SESSION['abool'] = 0;
+			$_SESSION['qbool'] = false; //it was missing this line
 			//redirects to game board
 			header("location:playgame.php");
 		}
