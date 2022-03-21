@@ -18,10 +18,11 @@
 		$_SESSION['qbool'] = false;
 	}
 
-	//setting up scoreboard
+	//setting up user scoreboard
 	if (!isset($_SESSION['questionblock'])) {
 		$_SESSION['questionblock'] = questions();
 	}
+
 	if (!isset($_SESSION['score'])) {
 		$_SESSION['score'] = 0;
 		echo "<h3>Current Score: 0</h3>";
@@ -46,12 +47,12 @@
 	?>
 
 	<!-- form that allows user to choose their question -->
-	<div class="chooseQuestion">
+	<div class="choosequestion">
 		<form action="play-submit.php" method="POST">
 			<fieldset>
 				<legend>Print the question number in order to choose that question.</legend>
-				<label for="qInput"><b>Question #</b></label>
-				<input type="text" name="number" maxlength="2">
+				<label for="inputnum"><b>Question #</b></label>
+				<input type="text" name="inputnum" size="2" maxlength="2">
 				<input type="submit" value="Choose Question">
 			</fieldset>
 		</form>
@@ -70,6 +71,44 @@
 		board(3, 300);
 		?>
 	</div>
+	
+	<?php
+	//checking if all questions have been answered
+	$allanswered = true;
+	for ($i = 0; $i < count($_SESSION['questionblock']); $i++) {
+		if ($_SESSION['questionblock'][$i][7] == 0) {
+			$allanswered = false;
+		}
+	}
+
+	//shows leaderboard when all questions have been answered
+	if ($allanswered == true) {
+		$scoreArray = array($_SESSION['username'], $_SESSION['score']);
+		$files = fopen("leaderboard.txt", 'a+');
+		fputcsv($files, $scoreArray);
+		rewind($files);
+
+		$sortlb = [];
+		while (($line = fgetcsv($files)) != false) {
+			$sortlb[$line[0]] = $line[1];
+		}
+		fclose($files);
+		asort($sortlb);
+
+		if (isset($_SESSION['score'])) {
+			echo "<h3>Game Over! Your Final Score is " . $_SESSION['score'] . "! Thank you for playing our game!<br>You can now view the Leaderboard below</h3>";
+		}
+		echo "<div class='leaderboard'>";
+		echo "<b><p>Leaderboard: </p></b><br>";
+		foreach ($sortlb as $lbname => $lbvalue) {
+			echo "<p>" . $lbname . "'s Score: " . $lbvalue;
+			echo "<br>";
+		}
+		echo "</div>";
+	}
+	?>
+	
+	<a href="login.php">Back to Login Page</a>
 
 </body>
 </html>

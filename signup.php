@@ -8,6 +8,7 @@
 </head>
 
 <body>
+	<!-- creating user sign up form -->
 	<?php
 	session_start();
 	if (isset($_SESSION['signfailed'])) {
@@ -17,6 +18,10 @@
 		}
 	}
 	?>
+	
+	<h1>Welcome to Jeopardy!</h1>
+
+	<!-- form for user to sign up with -->
 	<form action="signup-submit.php" method="POST">
 		<fieldset>
 			<legend>Sign Up: </legend>
