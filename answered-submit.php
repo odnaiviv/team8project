@@ -16,7 +16,7 @@
 	if (isset($_SESSION['questionblock'])) {
 		$questionblock = $_SESSION['questionblock'];
 		//checking if chosen answer was correct
-		if ($_POST['answers'] == $questionblock[$num][6]) {
+		if ($_POST['answer'] == $questionblock[$num][6]) {
 			//add points to score
 			$_SESSION['score'] = $_SESSION['score'] + $questionblock[$num][0];
 			//turns question as answered
