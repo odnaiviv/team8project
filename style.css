@@ -45,3 +45,32 @@ a:visited {
 a:hover {
 	background-color: #fdfd96;
 }
+
+
+
+/* style for game board */
+.questions {
+	height: 20%;
+	margin: auto;
+	color: black;
+}
+.q {
+	float: left;
+	text-align: center;
+	width: 33%;
+	height: 50px;
+	border: 2px double black;
+	vertical-align: middle;
+}
+.questionHeader {
+	width: 90%;
+	height: auto;
+	position: relative;
+	margin: auto;
+	color: black;
+}
+.chooseQuestion {
+	clear: both;
+}
+
+/* style for leaderboard */
