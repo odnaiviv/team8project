@@ -38,15 +38,16 @@
 	}
 	//redirecting results
 	print_r($userArray);
+	//goes back to login page when failed
 	if ($logfail == true) {
 		$_SESSION['logfail'] = true;
 		header("location:login.php");
 	}
 	else {
+		//goes to game board when succeeds
 		if ($logfail == false) {
 			$_SESSION['logfail'] = false;
-			//we can redirect this to our gameboard file later
-			header("location:");
+			header("location:playgame.php");
 		}
 	}
 	?>

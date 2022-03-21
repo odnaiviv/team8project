@@ -20,6 +20,8 @@
 		}
 	}
 	?>
+	
+	<h1>Welcome to Jeopardy!</h1>
 
 	<!-- form for user to login -->
 	<form action="login-submit.php" method="POST">

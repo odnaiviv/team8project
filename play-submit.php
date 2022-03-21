@@ -10,14 +10,14 @@
 <body>
 	<?php
 	session_start();
-	$qnum = $_POST['qInput'] - 1;
-	$_SESSION['qInput'] = $qnum;
+	$num = $_POST['inputnum'] - 1;
+	$_SESSION['inputnum'] = $num;
 
 	//checking if user input is valid
-	if (isset($_SESSION['qInput'])) {
+	if (isset($_SESSION['questionblock'])) {
 		$questionblock = $_SESSION['questionblock'];
 		//checking if user input was an answered question or not
-		if ($_SESSION['questionblock'][$qnum][7] == 1) {
+		if ($_SESSION['questionblock'][$num][7] == 1) {
 			$_SESSION['qbool'] = true;
 			//returns back to game board
 			header("location:playgame.php");
@@ -28,23 +28,23 @@
 			//$questionblock array based on the $contents array in gamecontents.php
 
 			echo "
-			<h3>Question: <?php echo $questionblock[$qnum][1]; ?></h3>
+			<h3>Question: " . $questionblock[$num][1] . "</h3>
 			<form action='answered-submit.php' method='POST'>
 			<fieldset>
 			<legend>Select Answer: </legend>
-			<label for='A'><b>" . $questionblock[$qnum][2] . "</b></label>
+			<label for='A'><b>" . $questionblock[$num][2] . "</b></label>
 			<input type='radio' name='answer' value='A'>
 			<br><br>
 
-			<label for='B'><b>" . $questionblock[$qnum][3] . "</b></label>
+			<label for='B'><b>" . $questionblock[$num][3] . "</b></label>
 			<input type='radio' name='answer' value='B'>
 			<br><br>
 
-			<label for='C'><b>" . $questionblock[$qnum][4] . "</b></label>
+			<label for='C'><b>" . $questionblock[$num][4] . "</b></label>
 			<input type='radio' name='answer' value='C'>
 			<br><br>
 
-			<label for='D'><b>" . $questionblock[$qnum][5] . "</b></label>
+			<label for='D'><b>" . $questionblock[$num][5] . "</b></label>
 			<input type='radio' name='answer' value='D'>
 			<br><br>
 
@@ -60,5 +60,6 @@
 		header("location:login.php");
 	}
 	?>
+	
 </body>
 </html>

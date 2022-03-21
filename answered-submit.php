@@ -10,17 +10,17 @@
 <body>
 	<?php
 	session_start();
-	$qnum = $_SESSION['qInput'];
+	$num = $_SESSION['inputnum'];
 
 	//checking if chosen answer is right
 	if (isset($_SESSION['questionblock'])) {
 		$questionblock = $_SESSION['questionblock'];
 		//checking if chosen answer was correct
-		if ($_POST['answers'] == $questionblock[$qnum][6]) {
+		if ($_POST['answers'] == $questionblock[$num][6]) {
 			//add points to score
-			$_SESSION['score'] = $_SESSION['score'] + $questionblock[$qnum][0];
+			$_SESSION['score'] = $_SESSION['score'] + $questionblock[$num][0];
 			//turns question as answered
-			$_SESSION['questionblock'][$qnum][7] = 1;
+			$_SESSION['questionblock'][$num][7] = 1;
 			$_SESSION['abool'] = 1;
 			$_SESSION['qbool'] = false;
 			//redirects to game board
@@ -29,11 +29,10 @@
 		//when chosen answer is wrong
 		else {
 			//subtracts points to score
-			$_SESSION['score'] = $_SESSION['score'] - $questionblock[$qnum][0];
+			$_SESSION['score'] = $_SESSION['score'] - $questionblock[$num][0];
 			//turns question as answered
-			$_SESSION['questionblock'][$qnum][7] = 1;
-			$_SESSION['abool'] = 1;
-			$_SESSION['qbool'] = false;
+			$_SESSION['questionblock'][$num][7] = 1;
+			$_SESSION['abool'] = 0;
 			//redirects to game board
 			header("location:playgame.php");
 		}
