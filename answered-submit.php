@@ -11,9 +11,10 @@
 	<?php
 	session_start();
 	$num = $_SESSION['inputnum'];
-
+  
 	//checking if chosen answer is right
 	if (isset($_SESSION['questionblock'])) {
+
 		$questionblock = $_SESSION['questionblock'];
 		//checking if chosen answer was correct
 		if ($_POST['answer'] == $questionblock[$num][6]) {
