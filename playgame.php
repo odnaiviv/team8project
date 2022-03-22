@@ -117,9 +117,12 @@
 		}
 		echo "</div>";
 	}
+
 	?>
 	
 	<a href="login.php">Back to Login Page</a>
+
+	<a href="logout.php">Log out</a>
 
 </body>
 </html>
