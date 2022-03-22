@@ -40,6 +40,17 @@
 			echo "<h3>Your answer was correct!</h3>";
 		}
 	}
+
+	if(!isset($_SESSION['wrongInput'])){
+       $_SESSION['wrongInput'] = false;
+	  
+	}
+
+	if( $_SESSION['wrongInput'] == true){
+		echo "<h3> Wrong input </h3>";
+	
+	}
+
 	//checking for answered questions
 	if ($_SESSION['qbool'] == true) {
 		echo "<h4><b>ERROR! This question has been answered, pick another one!</b></h4>";
@@ -52,7 +63,7 @@
 			<fieldset>
 				<legend>Print the question number in order to choose that question.</legend>
 				<label for="inputnum"><b>Question #</b></label>
-				<input type="text" name="inputnum" size="2" maxlength="2">
+				<input type="text" name="inputnum" size="1" maxlength="2">
 				<input type="submit" value="Choose Question">
 			</fieldset>
 		</form>
