@@ -22,7 +22,7 @@
 	if (!isset($_SESSION['questionblock'])) {
 		$_SESSION['questionblock'] = questions();
 	}
-
+	echo "<div class='score'>";
 	if (!isset($_SESSION['score'])) {
 		$_SESSION['score'] = 0;
 		echo "<h3>Current Score: 0</h3>";
@@ -30,7 +30,7 @@
 	else {
 		echo "<h3>Current Score: " . $_SESSION['score'] . "</h3>";
 	}
-
+	
 	//checking answers
 	if (isset($_SESSION['abool'])) {
 		if ($_SESSION['abool'] == 0) {
@@ -40,16 +40,17 @@
 			echo "<h3>Your answer was correct!</h3>";
 		}
 	}
+	echo "</div>";
 
 	if(!isset($_SESSION['wrongInput'])){
-       $_SESSION['wrongInput'] = false;
-	  
-	}
-
-	if( $_SESSION['wrongInput'] == true){
-		echo "<h3> Wrong input </h3>";
-	
-	}
+		$_SESSION['wrongInput'] = false;
+ 
+	 }
+ 
+	 if( $_SESSION['wrongInput'] == true){
+		 echo "<h3> Wrong input </h3>";
+ 
+	 }
 
 	//checking for answered questions
 	if ($_SESSION['qbool'] == true) {
@@ -70,19 +71,17 @@
 	</div>
 
 	<!-- creating game board -->
-	<div class="questionHeader">
-		<div class="questions">
-			<div class="q"><b>Topic 1</b></div>
-			<div class="q"><b>Topic 2</b></div>
-			<div class="q"><b>Topic 3</b></div>
-		</div>
+	<div class="questionHeaders">
+		<div class="q"><b>Programming</b></div>
+		<div class="q"><b>Pop Culture</b></div>
+		<div class="q"><b>College 101</b></div>
+	</div>
 		<?php
 		board(1, 100);
 		board(2, 200);
-		board(3, 300);
+		board(3, 400);
 		?>
-	</div>
-	
+	<div class="gameover">
 	<?php
 	//checking if all questions have been answered
 	$allanswered = true;
@@ -107,7 +106,8 @@
 		asort($sortlb);
 
 		if (isset($_SESSION['score'])) {
-			echo "<h3>Game Over! Your Final Score is " . $_SESSION['score'] . "! Thank you for playing our game!<br>You can now view the Leaderboard below</h3>";
+			echo "<h4>Game Over! Your Final Score is " . $_SESSION['score'] . 
+			"! Thank you for playing our game!<br>You can now view the Leaderboard below</h3>";
 		}
 		echo "<div class='leaderboard'>";
 		echo "<b><p>Leaderboard: </p></b><br>";
@@ -117,12 +117,11 @@
 		}
 		echo "</div>";
 	}
-
 	?>
-	
-	<a href="login.php">Back to Login Page</a>
-
-	<a href="logout.php">Log out</a>
-
+</div>
+	<div class="footer">
+		<p><a href="login.php">Back to Login Page</a></p>
+		<p><a href="logout.php">Log out</a></p>
+	</div>
 </body>
 </html>

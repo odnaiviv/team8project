@@ -2,6 +2,10 @@ body {
 	background-color: #f0f8ff;
 	font-family: "Verdana", sans-serif;
 }
+
+h1 {
+	text-align: center;
+}
 fieldset {
 	background-color: #4169e1;
 	color: whitesmoke;
@@ -49,32 +53,69 @@ a:hover {
 
 
 /* style for game board */
+div.score {
+	width: 30%;
+	text-align: center;
+	margin:auto;
+	background-color: #4169e1;
+	border: 5px dotted gold;
+	border-radius: 12px;
+	padding: 5px;
+}
+div.questionHeaders {
+	overflow: hidden;
+	width: 90%;
+	text-align: center;
+	margin: auto;
+}
 .questions {
+	overflow: hidden;
 	height: 20%;
 	margin: auto;
-	color: black;
+	text-align: center;
+	width: 90%;
 }
 .q {
+	margin: auto;
+	color: gold;
 	float: left;
 	text-align: center;
-	width: 33%;
+	width: 30%;
 	height: 50px;
 	border: 2px double black;
 	vertical-align: middle;
-}
-.questionHeader {
-	width: 90%;
-	height: auto;
-	position: relative;
-	margin: auto;
-	color: black;
+	background-color: #4169e1;
 }
 .chooseQuestion {
 	clear: both;
 }
 
+.qheader {
+	width: 75%;
+	margin: auto;
+	padding: 1em;
+	text-align: center;
+	border: 2px double black;
+}
+.footer {
+	padding: 5px;
+}
+.gameover {
+	margin: auto;
+	width: 75%;
+}
+h4 {
+	padding: 1em;
+	border: 3px solid black;
+	text-align: center;
+}
 /* style for leaderboard */
 .leaderboard {
+	width: 50%;
 	display: block;
 	margin: auto;
+	text-align: center;
+	border: 5px dotted gold;
+	border-radius: 12px;
+	padding: 5px;
 }

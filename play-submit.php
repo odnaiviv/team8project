@@ -14,15 +14,13 @@
 	$_SESSION['inputnum'] = $num;
 
 
-	
-
-	 if($num >= 9){
+	if($num >= 9){
 		$_SESSION['wrongInput'] = true;
 		header("location:playgame.php");
 	  }
 
 	//checking if user input is valid
-	else if (isset($_SESSION['questionblock'])) {
+	if (isset($_SESSION['questionblock'])) {
 		$_SESSION['wrongInput'] = false;
 		$questionblock = $_SESSION['questionblock'];
 		//checking if user input was an answered question or not
@@ -35,9 +33,9 @@
 
 			//creating another form for user to select answer
 			//$questionblock array based on the $contents array in gamecontents.php
-
+			
 			echo "
-			<h3>Question: " . $questionblock[$num][1] . "</h3>
+			<div class='qheader'><h3>Question: " . $questionblock[$num][1] . "</h3></div>
 			<form action='answered-submit.php' method='POST'>
 			<fieldset>
 			<legend>Select Answer: </legend>
