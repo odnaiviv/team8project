@@ -20,7 +20,7 @@
 	  }
 
 	//checking if user input is valid
-	if (isset($_SESSION['questionblock'])) {
+	else if (isset($_SESSION['questionblock'])) {
 		$_SESSION['wrongInput'] = false;
 		$questionblock = $_SESSION['questionblock'];
 		//checking if user input was an answered question or not
